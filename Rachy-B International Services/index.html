@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachy-B International Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+        }
+
+        .brand-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .brand-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(210, 105, 30, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23f4f4f4" width="1000" height="600"/><circle fill="%23e0e0e0" cx="200" cy="150" r="80"/><circle fill="%23d0d0d0" cx="800" cy="450" r="100"/><rect fill="%23c0c0c0" x="300" y="200" width="400" height="200" rx="20"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B4513;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .services {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #8B4513;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: #8B4513;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #8B4513;
+            font-weight: 500;
+        }
+
+        .features li:before {
+            content: "✓ ";
+            color: #FFD700;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .contact {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #FFD700;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-info h1 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #8B4513;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+        }
+
+        .scroll-to-top:hover {
+            background: #D2691E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="C:\Users\W\OneDrive - MSFT\Documents\LOGOO.jpg" alt="RBIS Logo" class="logo">
+                    <div class="brand-info">
+                        <h1>Rachy-B International Services</h1>
+                        <p>Quality Hair Styling & Premium African Food Products</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Your One-Stop Shop for Beauty & Quality African Foods</h2>
+            <p>Experience professional hair styling services and discover premium African food products . We serve customers locally in Winnipeg and internationally.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="C:\Users\W\OneDrive - MSFT\Documents\HAIR PRODUCT .jpg" alt="Hair Styling Services" class="service-image">
+                    <h3>Professional Hair Styling</h3>
+                    <p>Expert hair styling services including braids, wigs, extensions, and custom hair treatments. We specialize in all hair types and textures, creating beautiful styles that enhance your natural beauty.</p>
+                </div>
+                <div class="service-card">
+                    <img src="C:\Users\W\OneDrive - MSFT\Documents\FOOD PRODUCT IMAGE.jpg" alt="Food Products" class="service-image">
+                    <h3>Premium Food Products</h3>
+                    <p>High-quality African food products sourced locally and internationally. From rice and spices to specialty items, we provide authentic ingredients and foods that bring flavors from around the world to your table.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Rachy-B International Services</h2>
+                    <p>Welcome to Rachy-B International Services, your trusted partner for premium hair styling and quality food products. Based in Winnipeg, Manitoba, we proudly serve customers both locally and internationally.</p>
+                    <p>Our mission is to provide exceptional service and high-quality products that meet the diverse needs of our community. Whether you're looking for professional hair styling or authentic Afican food products from around the world, we're here to serve you.</p>
+                    <ul class="features">
+                        <li>Professional hair styling and beauty services</li>
+                        <li>Wide selection of African food products</li>
+                        <li>Local and international shipping available</li>
+                        <li>Experienced and friendly service</li>
+                        <li>Competitive prices and quality guarantee</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="C:\Users\W\OneDrive - MSFT\Documents\LOGOO.jpg" alt="About Us" style="width: 100%; height: auto; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <h3>📍 Visit Us</h3>
+                    <p>46, Monaco Bay<br>Winnipeg, Manitoba<br>Canada</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email Us</h3>
+                    <p><a href="mailto:rachybinternational@yahoo.com">rachybinternational@yahoo.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>🌍 We Serve</h3>
+                    <p>Local Winnipeg customers<br>& International shipping<br>available worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rachy-B International Services. All rights reserved. | Quality Hair Styling & Premium Afican Food Products</p>
+        </div>
+    </footer>
+
+    <a href="#home" class="scroll-to-top" id="scrollToTop">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTop.classList.add('show');
+            } else {
+                scrollToTop.classList.remove('show');
+            }
+        });
+
+        // Add animation to service cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
